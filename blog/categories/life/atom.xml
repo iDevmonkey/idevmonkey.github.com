@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Monkey之家]]></title>
-  <link href="http://iDevmonkey.github.io//atom.xml" rel="self"/>
+  <title><![CDATA[Category: Life | Monkey之家]]></title>
+  <link href="http://iDevmonkey.github.io//blog/categories/life/atom.xml" rel="self"/>
   <link href="http://iDevmonkey.github.io//"/>
   <updated>2014-03-22T23:22:37+08:00</updated>
   <id>http://iDevmonkey.github.io//</id>
