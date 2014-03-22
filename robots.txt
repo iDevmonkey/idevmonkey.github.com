@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://iDevmonkey.github.io/sitemap.xml 
