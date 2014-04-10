@@ -4,7 +4,7 @@
   <title><![CDATA[Monkey之家]]></title>
   <link href="http://iDevmonkey.github.io//atom.xml" rel="self"/>
   <link href="http://iDevmonkey.github.io//"/>
-  <updated>2014-03-22T23:34:52+08:00</updated>
+  <updated>2014-04-10T23:08:59+08:00</updated>
   <id>http://iDevmonkey.github.io//</id>
   <author>
     <name><![CDATA[iDev_monkey]]></name>
@@ -18,8 +18,7 @@
     <link href="http://iDevmonkey.github.io//blog/2014/03/22/bo-ke-yi-shi/"/>
     <updated>2014-03-22T21:57:36+08:00</updated>
     <id>http://iDevmonkey.github.io//blog/2014/03/22/bo-ke-yi-shi</id>
-    <content type="html"><![CDATA[<pre>周末之余，利用
-<a href="http://octopress.org/" target="_blank">Octopress</a>搭建了这个个人技术博客，旨在为以后的学习、生活积累提供记录，随时记录下自己的学习心得以及生活的感悟。</pre>
+    <content type="html"><![CDATA[<p>周末之余，利用<a href="http://octopress.org/" target="_blank">Octopress</a>搭建了这个个人技术博客，旨在为以后的学习、生活积累提供记录，随时记录下自己的学习心得以及生活的感悟。</p>
 
 ]]></content>
   </entry>
