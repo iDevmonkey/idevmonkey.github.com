@@ -1,0 +1,70 @@
+---
+published: true
+title: Live555编译脚本
+layout: post
+---
+# Live555编译脚本
+
+
+**Live555**是一个为流媒体提供解决方案的跨平台的C++开源项目，它实现了对标准流媒体传输是一个为流媒体提供解决方案的跨平台的C++开源项目，它实现了对标准流媒体传输协议如RTP/RTCP、RTSP、SIP等的支持。Live555实现了对多种音视频编码格式的音视频数据的流化、接收和处理等支持，包括MPEG、H.263+、DV、JPEG视频和多种音频编码。同时由于良好的设计，Live555非常容易扩展对其他格式的支持。目前，Live555已经被用于多款播放器的流媒体播放功能的实现，如VLC(VideoLan)、MPlayer。
+ 
+-------------------
+
+### 编译脚本
+针对iOS平台编译脚本如下：
+```
+IOS_VERSION =		8.1
+
+DEVELOPER_PATH =	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer
+TOOL_PATH =		$(DEVELOPER_PATH)/usr/bin
+SDK_PATH =		$(DEVELOPER_PATH)/SDKs
+SDK =	 		$(SDK_PATH)/iPhoneOS$(IOS_VERSION).sdk
+COMPILE_OPTS =          $(INCLUDES) -I. $(EXTRA_LDFLAGS) -DBSD=1 -O2 -DSOCKLEN_T=socklen_t -DHAVE_SOCKADDR_LEN=1 -D_LARGEFILE_SOURCE=1 -D_FILE_OFFSET_BITS=64 -fPIC -arch armv7 --sysroot=$(SDK)
+C =                     c
+C_COMPILER =            /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+C_FLAGS =               $(COMPILE_OPTS)
+CPP =                   cpp
+CPLUSPLUS_COMPILER =    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+CPLUSPLUS_FLAGS =       $(COMPILE_OPTS) -Wall
+OBJ =                   o
+LINK =                  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -o 
+LINK_OPTS =             -L. -arch arm64 --sysroot=$(SDK) -L$(SDK)/usr/lib/system
+CONSOLE_LINK_OPTS =     $(LINK_OPTS)
+LIBRARY_LINK =          libtool -s -o 
+LIBRARY_LINK_OPTS =
+LIB_SUFFIX =            a
+LIBS_FOR_CONSOLE_APPLICATION =
+LIBS_FOR_GUI_APPLICATION =
+EXE =
+```
+
+如果需要，在运行 `genMakefiles iphoneos`前，更改版本号。
+
+### 整合版本
+整合针对不同架构静态库的脚本如下：
+
+```
+lipo -output ./universal/libBasicUsageEnvironment.a  -create \
+./armv7/libBasicUsageEnvironment.a \
+./armv7s/libBasicUsageEnvironment.a \
+./arm64/libBasicUsageEnvironment.a
+
+
+lipo -output ./universal/libgroupsock.a  -create \
+./armv7/libgroupsock.a \
+./armv7s/libgroupsock.a \
+./arm64/libgroupsock.a
+
+
+lipo -output ./universal/libliveMedia.a  -create \
+./armv7/libliveMedia.a \
+./armv7s/libliveMedia.a \
+./arm64/libliveMedia.a
+
+
+lipo -output ./universal/libUsageEnvironment.a  -create \
+./armv7/libUsageEnvironment.a \
+./armv7s/libUsageEnvironment.a \
+./arm64/libUsageEnvironment.a
+```
+-------------------
